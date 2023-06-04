@@ -1,0 +1,6 @@
+for large graph and k = 2
+cut_num = 241
+node_num={0: 312, 1: 313}
+for large graph and k = 3
+cut_num = 377
+node_num={0: 211, 1: 206, 2: 208}

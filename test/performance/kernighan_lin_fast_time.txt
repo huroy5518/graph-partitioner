@@ -1,2 +1,4 @@
-for small time use = 0.00049464299809187651
-for large time use = 0.01333001698367297649
+for small time use = 0.00021774298511445522
+for large time use = 0.01217200199607759714
+for k=3 small graph time use = 0.00036277103936299682
+for k=3 large time use = 0.03345655801240354776

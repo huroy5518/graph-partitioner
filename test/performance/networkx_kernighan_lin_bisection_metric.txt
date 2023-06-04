@@ -1,0 +1,3 @@
+for large graph and k = 2
+cut_num = 37
+node_num={0: 312, 1: 313}
