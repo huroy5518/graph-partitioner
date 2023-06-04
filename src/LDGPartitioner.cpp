@@ -15,7 +15,6 @@ std::vector<size_t> LDGPartitioner::Part(size_t target_k) {
     std::vector<size_t> ret(target_k);
     // std::cout << "hello" << std::endl;
 
-    std::cout << G.nvert() << std::endl;
     pid = std::vector<size_t>(G.nvert());
     balance_vertex_distribute = std::vector<double>(G.nvert());
     std::vector<size_t> order(G.nvert());

@@ -165,6 +165,8 @@ void KernighanLinPartitioner::changePart(size_t v1, size_t v2) {
 
 bool KernighanLinPartitioner::KL(size_t p1, size_t p2) {
     std::vector<bool> skip(this->G.nvert(), false);
+    std::vector<size_t> alist;
+    std::vector<size_t> blist;
     std::vector<bool> outerskip(this->G.nvert(), false);
 
     size_t tot_size = cur_part[p1].size() + cur_part[p2].size();
@@ -176,9 +178,6 @@ bool KernighanLinPartitioner::KL(size_t p1, size_t p2) {
     size_t a, b;
 
 
-    std::vector<size_t> alist;
-
-    std::vector<size_t> blist;
 
     size_t max_iter = 15;
     bool ret = false;

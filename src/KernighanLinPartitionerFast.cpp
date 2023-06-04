@@ -13,7 +13,7 @@ bool KernighanLinPartitionerFast::KLNew(size_t p1, size_t p2) {
     std::set<std::pair<double, size_t>> costs[2];
     std::vector<std::set<std::pair<double, size_t>>::iterator> head(this->G.nvert());
 
-    size_t max_iter = 100;
+    size_t max_iter = 10;
 
     bool ret = false;
 
@@ -46,8 +46,11 @@ bool KernighanLinPartitionerFast::KLNew(size_t p1, size_t p2) {
 
     costs[0].clear();
     costs[1].clear();
+    std::vector<std::pair<double, std::pair<size_t, size_t>>> upd;
 
     while(max_iter) {
+        costs[0].clear();
+        costs[1].clear();
         for(size_t i = 0; i < this->G.nvert(); i ++) {
             if(pid[i] != p1 && pid[i] != p2) {
                 continue;
@@ -70,8 +73,8 @@ bool KernighanLinPartitionerFast::KLNew(size_t p1, size_t p2) {
             head[i] = costs[id].insert({cost_u, i}).first;
 
         }
-        std::vector<std::pair<double, std::pair<size_t, size_t>>> upd;
         double tot_cost = 0;
+        upd.clear();
         while(costs[0].size() && costs[1].size()) {
             std::pair<double, size_t> cur = *(costs[0].begin());
             size_t u = cur.second;
@@ -89,7 +92,7 @@ bool KernighanLinPartitionerFast::KLNew(size_t p1, size_t p2) {
             _update_costs(1, cur.second);
             upd.push_back({tot_cost, {u, v}});
         }
-        double best_val = 100000;
+        double best_val = 1000000;
         size_t best_idx = 0;
         for(size_t i = 0; i < upd.size(); i ++) {
             if(upd[i].first < best_val) {

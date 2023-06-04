@@ -1,0 +1,2 @@
+for small graph time use = 0.00162086199270561337
+for large time use = 0.11559307499555870891
